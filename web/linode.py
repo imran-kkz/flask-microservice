@@ -47,7 +47,16 @@ def hello_world():
         cache.set('visitor_count', count)
         cache.incr('visitor_count')
         count = (cache.get('visitor_count')).decode('utf-8')
-    return 'Hello Imran!  This page has been viewed %s time(s).' % count
+    return '''
+    <html>
+        <head>
+            <title>Home Page - Microservices Test</title>
+        </head>
+        <body>
+            <h1>
+            Hello Imran!  This page has been viewed %s time(s).' % count</h1>
+        </body>
+    </html>'''
 
 @app.route('/resetcounter')
 def resetcounter():
